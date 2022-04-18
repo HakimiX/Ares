@@ -29,7 +29,9 @@ pgClient.on('connect', (client) => {
 });
 
 app.get('/', (req, res) => {
-  res.send('it works!')
+  res.json({
+    status: "healthy"
+  });
 });
 
 app.get('/person/all', async (req, res) => {

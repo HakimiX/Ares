@@ -25,6 +25,12 @@ pgClient.on('error', () => {
   logger.error('Database connection lost!')
 });
 
+app.get('/', (req, res) => {
+  res.json({
+    status: "healthy"
+  });
+});
+
 app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
 
   try {
