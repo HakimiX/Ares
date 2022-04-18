@@ -20,6 +20,14 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 ### Kubernetes
 
 ### Local Development
+#### Dockerfile
+```shell
+# Build image 
+docker build -t person-server  -f ./person-server/Dockerfile.dev ./person-server
+
+# Run container
+docker run -p 5005:5005 person-server
+```
 
 ### CI/CD
 #### Travis CI

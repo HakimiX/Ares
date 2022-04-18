@@ -1,0 +1,20 @@
+version: '3'
+services:
+  person-server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./person-server
+    volumes:
+      - /app/node_modules
+      - ./person-server:/app
+    env_file:
+      - "./person-server/.env"
+    ports:
+      - "5005:5005"
+
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
