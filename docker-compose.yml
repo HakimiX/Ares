@@ -8,9 +8,41 @@ services:
       - /app/node_modules
       - ./person-server:/app
     env_file:
-      - "./person-server/.env"
+      - "./.env.dev"
+    environment:
+      - LOG_LEVEL_DEFAULT=debug
+      - PORT=5005
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres
+      - PGPORT=5432
     ports:
       - "5005:5005"
+    depends_on:
+      - postgres
+
+  pour-server:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./pour-server
+    volumes:
+      - /app/node_modules
+      - ./pour-server:/app
+    env_file:
+      - "./.env.dev"
+    environment:
+      - LOG_LEVEL_DEFAULT=debug
+      - PORT=5006
+      - PGUSER=postgres
+      - PGHOST=postgres
+      - PGDATABASE=postgres
+      - PGPASSWORD=postgres
+      - PGPORT=5432
+    ports:
+      - "5006:5006"
+    depends_on:
+      - postgres
 
   postgres:
     image: 'postgres:latest'

@@ -17,6 +17,14 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 ### Overview
 ![](resources/images/overveiw.png)
 
+#### person-server
+
+#### company-server
+
+#### posts-server
+
+#### pour-server
+
 ### Kubernetes
 
 ### Local Development
