@@ -37,6 +37,15 @@ docker build -t person-server  -f ./person-server/Dockerfile.dev ./person-server
 docker run -p 5005:5005 person-server
 ```
 
+#### Docker Compose
+```shell
+# Start containers
+docker-compose up
+
+# Stop containers 
+docker-compose down
+```
+
 ### CI/CD
 #### Travis CI
 
