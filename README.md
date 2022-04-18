@@ -1,6 +1,7 @@
 # Ares 
 
-Multi container application that consists of mulitple microservices.
+Multi container application consisting of mulitple microservices and 
+data sources. 
 
 **Technologies**: Docker, Kubernetes, Helm, Nginx, React, Nodejs, Express, Graphql, Postgres,
 Elasticsearch, Logstash, Kibana, and Google Cloud,
@@ -8,4 +9,4 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 * [Overview](#overview)
 
 ### Overview
-![](resources/images/overview.png)
+![](resources/images/overveiw.png)
