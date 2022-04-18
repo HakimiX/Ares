@@ -46,6 +46,21 @@ docker-compose up
 docker-compose down
 ```
 
+#### Postgres
+Access the Postgres CLI inside the container: 
+```shell
+# Enter container
+docker exec -it postgres /bin/sh
+
+# Postgres CLI
+psql --username postgres 
+
+# Commands
+$ \c dbname # switch connection to new database
+$ \l        # list databases
+$ \dt       # list tables 
+```
+
 ### CI/CD
 #### Travis CI
 

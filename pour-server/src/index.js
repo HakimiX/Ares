@@ -34,7 +34,7 @@ app.get('/', (req, res) => {
 app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
 
   try {
-    pgClient.query('INSERT INTO person(name) VALUES($1)', [req.body.name]);
+    pgClient.query('INSERT INTO person(name) VALUES($1) ON CONFLICT DO NOTHING', [req.body.name]);
   } catch (err) {
     logger.error('Failed to insert data', err);
     res.status(500);
