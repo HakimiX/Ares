@@ -1,5 +1,18 @@
 version: '3'
 services:
+
+  client:
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes:
+      - /app/node_module
+      - ./client:/app
+    environment:
+      - WSD_SOCKET_PORT=0
+    ports:
+      - "3000:3000"
+
   person-server:
     build:
       dockerfile: Dockerfile.dev
