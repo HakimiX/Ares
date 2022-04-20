@@ -66,3 +66,7 @@ $ \dt       # list tables
 
 ### Deployment
 #### Google Cloud
+
+### Source
+
+* [Express JSON validation](https://simonplend.com/how-to-handle-request-validation-in-your-express-api/)

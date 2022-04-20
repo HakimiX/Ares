@@ -7,6 +7,9 @@ module.exports = {
         type: "string",
         minLength: 1,
       },
+      userId: {
+        type: "integer"
+      },
     },
   }
 }

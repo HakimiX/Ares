@@ -32,9 +32,10 @@ app.get('/', (req, res) => {
 });
 
 app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
+  const {userId, name} = req.body
 
   try {
-    pgClient.query('INSERT INTO person(name) VALUES($1) ON CONFLICT DO NOTHING', [req.body.name]);
+    pgClient.query('INSERT INTO person(userId, name) VALUES($1, $2) ON CONFLICT DO NOTHING', [userId, name]);
   } catch (err) {
     logger.error('Failed to insert data', err);
     res.status(500);
