@@ -61,7 +61,7 @@ GET /<target>
 DELETE /<index>
 ```
 
-![](resources/images/elasticsearch/elasticsearch.png)
+![](resources/images/elasticsearch/elastisearch.png)
 
 Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON to define queries.
 ![](resources/images/elasticsearch/elasticsearch-query.png)
