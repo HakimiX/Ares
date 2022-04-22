@@ -7,6 +7,12 @@ data sources.
 Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 * [Overview](#overview)
+* [Components](#components)
+  * [person-server](#person-server)
+  * [company-server](#company-server)
+  * [posts-server](#posts-server)
+  * [pour-server](#pour-server)
+  * [Elasticsearch](#elasticsearch)
 * [Kubernetes](#kubernetes)
 * [Local Development](#local-development)
 * [CI/CD](#cicd)
@@ -17,6 +23,8 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 ### Overview
 ![](resources/images/overveiw.png)
 
+### Components
+
 #### person-server
 
 #### company-server
@@ -24,6 +32,39 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 #### posts-server
 
 #### pour-server
+
+#### Elasticsearch
+Elasticsearch is used to store, search, and manage data for the company-server (express server).
+
+Obtaining Elasticsearch for Docker is as simply as issuing a `docker pull` command 
+against the Elastic Docker registry: 
+```shell
+docker pull docker.elastic.co/elasticsearch/elasticsearch:7.10.2
+```
+Docker Compose is used to start a multi-node Elasticsearch cluster in Docker. This configuration
+provides a simple method of starting a secured cluster for development before building 
+a distributed deployment with multiple hosts. 
+
+Communication with Elasticsearch is done through the Index API's which are used to manage individual 
+indices, index settings, aliases, mappings, and index templates.
+```shell
+# Container running 
+http://localhost:9200
+
+# Create index
+PUT /<index>
+
+# Get index
+GET /<target>
+
+# Delete index
+DELETE /<index>
+```
+
+![](resources/images/elasticsearch/elasticsearch.png)
+
+Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON to define queries.
+![](resources/images/elasticsearch/elasticsearch-query.png)
 
 ### Kubernetes
 
@@ -70,3 +111,4 @@ $ \dt       # list tables
 ### Source
 
 * [Express JSON validation](https://simonplend.com/how-to-handle-request-validation-in-your-express-api/)
+* [Elasticsearch Index API's](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html)
