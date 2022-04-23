@@ -72,7 +72,7 @@ Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON
 
 #### Logstash 
 Logstash is a service-side data processing pipeline that ingests data and 
-sends it to Elasticsearch. 
+persists it in Elasticsearch. 
 
 Run the following script in order to run Logstash with Docker Compose for local development
 ```shell
