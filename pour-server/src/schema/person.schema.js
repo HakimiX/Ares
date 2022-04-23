@@ -1,14 +1,26 @@
 module.exports = {
   personSchema: {
     type: "object",
-    required: ["name"],
+    required: ["userId", "name", "username", "email", "phone", "website"],
     properties: {
+      userId: {
+        type: "integer"
+      },
       name: {
         type: "string",
         minLength: 1,
       },
-      userId: {
-        type: "integer"
+      username: {
+        type: "string",
+      },
+      email: {
+        type: "string",
+      },
+      phone: {
+        type: "string",
+      },
+      website: {
+        type: "string",
       },
     },
   }
