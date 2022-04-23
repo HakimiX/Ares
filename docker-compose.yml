@@ -53,6 +53,7 @@ services:
       - PGPASSWORD=postgres
       - PGPORT=5432
       - JSONPLACEHOLDER_API_BASE_URL=https://jsonplaceholder.typicode.com
+      - LOGSTASH_ENDPOINT=http://logstash:8080
     ports:
       - "5006:5006"
     depends_on:

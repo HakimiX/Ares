@@ -9,6 +9,7 @@ const validationErrorMiddleware = require("./middleware/error.middleware");
 const {personSchema} = require('./schema/person.schema');
 const usersService = require('./services/users.service');
 const databaseService = require('./services/database.service');
+const logstashService = require('./services/logstash.service');
 
 const app = express();
 app.use(cors());
@@ -52,6 +53,20 @@ app.get('/pour/auto', async (req, res, next) => {
   try {
     await users.forEach((user) => {
       databaseService.insert(user);
+    });
+  } catch (err) {
+    res.send(500);
+  }
+
+  let companies = [];
+  users.forEach(({ company, id }) => {
+    const companyRelation = {...company, userId: id};
+    companies.push({ company: companyRelation });
+  });
+
+  try {
+    await companies.forEach((company) => {
+      logstashService.insert(company)
     });
   } catch (err) {
     res.send(500);

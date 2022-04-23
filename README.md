@@ -70,10 +70,12 @@ Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON
 ![](resources/images/elasticsearch/elasticsearch-query.png)
 
 #### Logstash 
-TODO: describe logstash here...
+Logstash is a service-side data processing pipeline that ingests data and 
+sends it to Elasticsearch. 
 
 Run the following script in order to run Logstash with Docker Compose for local development
 ```shell
+# Creates a 'logstash/query' directory in 'tmp' with read/write permissions 
 ./scripts/fix-logstash.sh
 ```
 
