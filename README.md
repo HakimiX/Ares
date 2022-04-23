@@ -97,9 +97,10 @@ docker exec -it postgres /bin/sh
 psql --username postgres 
 
 # Commands
-$ \c dbname # switch connection to new database
-$ \l        # list databases
-$ \dt       # list tables 
+$ \c <dbname>   # switch connection to new database
+$ \l            # list databases
+$ \dt           # list table
+$ \d+ <table>   # describe table
 ```
 
 ### CI/CD

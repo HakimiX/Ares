@@ -36,10 +36,8 @@ app.get('/user/:id', async (req, res) => {
 });
 
 app.post('/pour/person', validate({body: personSchema}), async (req, res, next) => {
-  const { userId, name } = req.body
-
   try {
-    await databaseService.insert(userId, name);
+    await databaseService.insert(req.body);
   } catch (err) {
     res.send(500);
   }
