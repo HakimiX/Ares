@@ -1,30 +1,18 @@
-const {Pool} = require('pg');
 const express = require('express');
 const {Validator} = require("express-json-validator-middleware");
 const {validate} = new Validator();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const {PORT, PGUSER, PGHOST, PGDATABASE, PGPASSWORD, PGPORT} = require('./utils/config');
+const {PORT} = require('./utils/config');
 const logger = require('./utils/logger')
 const validationErrorMiddleware = require("./middleware/error.middleware");
 const {personSchema} = require('./schema/person.schema');
 const usersService = require('./services/users.service');
+const databaseService = require('./services/database.service');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-
-const pgClient = new Pool({
-  user: PGUSER,
-  host: PGHOST,
-  database: PGDATABASE,
-  password: PGPASSWORD,
-  port: PGPORT
-});
-
-pgClient.on('error', () => {
-  logger.error('Database connection lost!')
-});
 
 app.get('/', (req, res) => {
   res.json({
@@ -45,22 +33,20 @@ app.get('/user/:id', async (req, res) => {
   res.json({
     user
   });
-})
+});
 
-/*
-app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
-  const {userId, name} = req.body
+app.post('/pour/person', validate({body: personSchema}), async (req, res, next) => {
+  const { userId, name } = req.body
 
   try {
-    pgClient.query('INSERT INTO person(userId, name) VALUES($1, $2) ON CONFLICT DO NOTHING', [userId, name]);
+    await databaseService.insert(userId, name);
   } catch (err) {
-    logger.error('Failed to insert data', err);
-    res.status(500);
+    res.send(500);
   }
 
   res.json(req.body);
   next();
-});*/
+});
 
 app.use(validationErrorMiddleware);
 

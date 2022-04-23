@@ -15,7 +15,6 @@ app.get('/', (req, res) => {
   });
 });
 
-
 app.get('/person/all', async (req, res) => {
   const result = await databaseService.getAllPersons();
   res.json({
