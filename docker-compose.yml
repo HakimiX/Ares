@@ -52,6 +52,7 @@ services:
       - PGDATABASE=postgres
       - PGPASSWORD=postgres
       - PGPORT=5432
+      - JSONPLACEHOLDER_API_BASE_URL=https://jsonplaceholder.typicode.com
     ports:
       - "5006:5006"
     depends_on:

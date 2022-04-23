@@ -31,14 +31,14 @@ class DatabaseService {
     });
   }
 
-  async insert({userId, name, username, email, phone, website}) {
+  async insert({id, name, username, email, phone, website}) {
     try {
       await this.pgClient.query(
         "INSERT INTO person(userId, name, username, email, phone, website) " +
         "VALUES($1, $2, $3, $4, $5, $6) ON CONFLICT DO NOTHING",
-        [userId, name, username, email, phone, website]);
+        [id, name, username, email, phone, website]);
     } catch (err) {
-      logger.info(`Failed to insert ${userId}, ${name}`, err);
+      logger.info(`Failed to insert ${id}, ${name}`, err);
       throw err
     }
   }

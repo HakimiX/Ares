@@ -4,13 +4,14 @@ Multi container application consisting of mulitple microservices and
 data sources. 
 
 **Technologies**: Docker, Kubernetes, Helm, Nginx, React, Nodejs, Express, Graphql, Postgres,
-Elasticsearch, Logstash, Kibana, and Google Cloud,
+MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 * [Overview](#overview)
 * [Components](#components)
   * [person-server](#person-server)
   * [company-server](#company-server)
   * [posts-server](#posts-server)
+  * [address-server](#address-server)
   * [pour-server](#pour-server)
   * [Elasticsearch](#elasticsearch)
 * [Kubernetes](#kubernetes)
@@ -32,6 +33,8 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
 #### posts-server
 
 #### pour-server
+
+#### address-server
 
 #### Elasticsearch
 Elasticsearch is used to store, search, and manage data for the company-server (express server).

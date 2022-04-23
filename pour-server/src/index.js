@@ -46,6 +46,23 @@ app.post('/pour/person', validate({body: personSchema}), async (req, res, next) 
   next();
 });
 
+app.get('/pour/auto', async (req, res, next) => {
+  const users = await usersService.getUsers();
+
+  try {
+    await users.forEach((user) => {
+      databaseService.insert(user);
+    });
+  } catch (err) {
+    res.send(500);
+  }
+
+  res.json({
+    status: "inserted",
+    users
+  });
+});
+
 app.use(validationErrorMiddleware);
 
 app.listen(PORT, err => {
