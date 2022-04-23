@@ -69,6 +69,14 @@ DELETE /<index>
 Elasticsearch provides a full Query DSL (Domain Specific Language) based on JSON to define queries.
 ![](resources/images/elasticsearch/elasticsearch-query.png)
 
+#### Logstash 
+TODO: describe logstash here...
+
+Run the following script in order to run Logstash with Docker Compose for local development
+```shell
+./scripts/fix-logstash.sh
+```
+
 ### Kubernetes
 
 ### Local Development

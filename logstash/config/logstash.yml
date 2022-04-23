@@ -1,0 +1,4 @@
+queue.type: persisted
+queue.max_bytes: 10mb
+queue.page_capacity: 1mb
+xpack.monitoring.enabled: false

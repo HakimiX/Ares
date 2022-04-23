@@ -79,6 +79,19 @@ services:
       - "9200:9200"
       - "9300:9300"
 
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.15.0
+    environment:
+      - ES_HOST=http://elasticsearch:9200
+      - ES_PASSWORD=
+      - ES_USERNAME=
+      - ES_INDEX=company
+    volumes:
+      - ./logstash/pipeline/logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logstash/config/log4j2.properties:/usr/share/logstash/config/log4j2.properties
+      - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml
+      - /tmp/logstash/queue:/usr/share/logstash/data/queue
+
   postgres:
     image: 'postgres:latest'
     environment:
