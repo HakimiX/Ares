@@ -8,6 +8,7 @@ const {PORT, PGUSER, PGHOST, PGDATABASE, PGPASSWORD, PGPORT} = require('./utils/
 const logger = require('./utils/logger')
 const validationErrorMiddleware = require("./middleware/error.middleware");
 const {personSchema} = require('./schema/person.schema');
+const usersService = require('./services/users.service');
 
 const app = express();
 app.use(cors());
@@ -31,6 +32,22 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/user/all', async (req, res) => {
+  const users = await usersService.getUsers();
+  res.json({
+    users
+  });
+});
+
+app.get('/user/:id', async (req, res) => {
+  const id = req.params.id;
+  const user = await usersService.getUserById(id);
+  res.json({
+    user
+  });
+})
+
+/*
 app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
   const {userId, name} = req.body
 
@@ -43,7 +60,7 @@ app.post("/pour/person", validate({body: personSchema}), (req, res, next) => {
 
   res.json(req.body);
   next();
-});
+});*/
 
 app.use(validationErrorMiddleware);
 

@@ -7,5 +7,6 @@ module.exports = {
   PGHOST: process.env.PGHOST,
   PGDATABASE: process.env.PGDATABASE,
   PGPASSWORD: process.env.PGPASSWORD,
-  PGPORT: process.env.PGPORT
+  PGPORT: process.env.PGPORT,
+  JSONPLACEHOLDER_API_BASE_URL: process.env.JSONPLACEHOLDER_API_BASE_URL
 }
