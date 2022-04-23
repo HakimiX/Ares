@@ -21,7 +21,7 @@ Elasticsearch, Logstash, Kibana, and Google Cloud,
   * [Google Cloud](#google-cloud)
 
 ### Overview
-![](resources/images/overveiw.png)
+![](resources/images/overview.png)
 
 ### Components
 
