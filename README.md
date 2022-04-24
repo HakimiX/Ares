@@ -8,18 +8,20 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 * [Overview](#overview)
 * [Components](#components)
+  * [address-server](#address-server)
   * [person-server](#person-server)
   * [company-server](#company-server)
   * [posts-server](#posts-server)
-  * [address-server](#address-server)
   * [pour-server](#pour-server)
   * [Elasticsearch](#elasticsearch)
   * [Logstash](#logstash)
-* [Kubernetes](#kubernetes)
+  * [Postgres](#postgres)
+  * [MongoDB](#mongodb)
 * [Local Development](#local-development)
 * [CI/CD](#cicd)
   * [Travis CI](#travis-ci)
 * [Deployment](#deployment)
+  * [Kubernetes](#kubernetes)
   * [Google Cloud](#google-cloud)
 
 ### Overview
@@ -27,15 +29,45 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 ### Components
 
+#### address-server
+Express Server that fetches addresses from the MongoDB database.
+```shell
+# Running on 
+http://localhost:5007
+
+# Endpoints
+/address/all
+/address/:id
+```
+
 #### person-server
+Express Server that fetches persons from the Postgres database.
+```shell
+# Running on 
+http://localhost:5005
+
+# Endpoints
+/person/all
+/person/:id
+```
 
 #### company-server
 
 #### posts-server
 
 #### pour-server
+Express Server that fetches data from an external API and populates pieces
+of that data into three different data sources (MongoDB, Postgres and Elasticsearch).
+```shell
+# Running on 
+http://localhost:5006
 
-#### address-server
+# Endpoints
+/pour/all       # populates all data sources
+/pour/address   # populates MongoDB
+/pour/person    # populates Postgres
+/pour/company   # populates Elasticsearch
+```
 
 #### Elasticsearch
 Elasticsearch is used to store, search, and manage data for the company-server (express server).
@@ -80,7 +112,23 @@ Run the following script in order to run Logstash with Docker Compose for local 
 ./scripts/fix-logstash.sh
 ```
 
-### Kubernetes
+#### Postgres
+Access the Postgres CLI inside the container:
+```shell
+# Enter container
+docker exec -it postgres /bin/sh
+
+# Postgres CLI
+psql --username postgres 
+
+# Commands
+$ \c <dbname>   # switch connection to new database
+$ \l            # list databases
+$ \dt           # list table
+$ \d+ <table>   # describe table
+```
+
+#### MongoDB
 
 ### Local Development
 #### Dockerfile
@@ -101,26 +149,13 @@ docker-compose up
 docker-compose down
 ```
 
-#### Postgres
-Access the Postgres CLI inside the container: 
-```shell
-# Enter container
-docker exec -it postgres /bin/sh
-
-# Postgres CLI
-psql --username postgres 
-
-# Commands
-$ \c <dbname>   # switch connection to new database
-$ \l            # list databases
-$ \dt           # list table
-$ \d+ <table>   # describe table
-```
-
 ### CI/CD
 #### Travis CI
 
 ### Deployment
+
+#### Kubernetes
+
 #### Google Cloud
 
 ### Source

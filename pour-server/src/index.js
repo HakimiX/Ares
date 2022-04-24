@@ -10,6 +10,7 @@ const {personSchema} = require('./schema/person.schema');
 const usersService = require('./services/users.service');
 const databaseService = require('./services/database.service');
 const logstashService = require('./services/logstash.service');
+const mongoService = require('./services/mongo.service');
 
 const app = express();
 app.use(cors());
@@ -47,27 +48,52 @@ app.post('/pour/person', validate({body: personSchema}), async (req, res, next) 
   next();
 });
 
-app.get('/pour/auto', async (req, res, next) => {
-  const users = await usersService.getUsers();
-
+app.post('/pour/address', async (req, res) => {
   try {
-    await users.forEach((user) => {
-      databaseService.insert(user);
-    });
+    await mongoService.upsert(req.body);
   } catch (err) {
     res.send(500);
   }
 
+  res.json({
+    status: 'inserted',
+    address: req.body
+  });
+});
+
+app.post('/pour/company', async (req, res) => {
+
+});
+
+app.get('/pour/all', async (req, res, next) => {
+  const users = await usersService.getUsers();
+
   let companies = [];
-  users.forEach(({ company, id }) => {
+  let addresses = [];
+
+  users.forEach(({ company, id, address }) => {
     const companyRelation = {...company, userId: id};
+    const addressRelation = {...address, userId: id};
     companies.push({ company: companyRelation });
+    addresses.push(addressRelation);
   });
 
   try {
+    // upsert postgres
+    await users.forEach((user) => {
+      databaseService.insert(user);
+    });
+
+    // upsert elasticsearch
     await companies.forEach((company) => {
       logstashService.insert(company)
     });
+
+    // upsert mongodb
+    await addresses.forEach((address) => {
+      mongoService.upsert(address);
+    });
+
   } catch (err) {
     res.send(500);
   }
@@ -80,6 +106,7 @@ app.get('/pour/auto', async (req, res, next) => {
 
 app.use(validationErrorMiddleware);
 
-app.listen(PORT, err => {
+app.listen(PORT, async (err) => {
+  await mongoService.init();
   logger.info(`Server listening on http://localhost:${PORT}`);
 });

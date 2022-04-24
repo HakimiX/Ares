@@ -22,7 +22,17 @@ app.get('/person/all', async (req, res) => {
       result
     });
   } catch (err) {
-    res.send(500);
+    res.sendStatus(500);
+  }
+});
+
+app.get('/person/:id', async (req, res) => {
+  const id = req.params.id;
+  try {
+    const person = await databaseService.getPersonById(id);
+    res.json(person);
+  } catch (err) {
+    res.sendStatus(500);
   }
 });
 

@@ -1,5 +1,5 @@
 {
-  "name": "pour-server",
+  "name": "address-server",
   "version": "1.0.0",
   "description": "",
   "main": "src/index.js",
@@ -12,15 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.21.1",
     "body-parser": "^1.20.0",
     "cors": "2.8.4",
-    "dotenv": "^8.2.0",
     "express": "4.16.3",
-    "mongodb": "^4.5.0",
-    "express-json-validator-middleware": "^2.2.1",
-    "log4js": "^6.1.0",
     "nodemon": "1.18.3",
-    "pg": "8.0.3"
+    "dotenv": "^8.2.0",
+    "log4js": "^6.1.0",
+    "mongodb": "^4.5.0"
   }
 }
