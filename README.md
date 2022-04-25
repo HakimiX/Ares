@@ -52,6 +52,15 @@ http://localhost:5005
 ```
 
 #### company-server
+Express Server that fetches companies from Elasticsearch.
+```shell
+# Running on 
+http://localhost:5008
+
+# Endpoints
+/company/all
+/company/:id
+```
 
 #### posts-server
 
