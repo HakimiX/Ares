@@ -8,6 +8,7 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 * [Overview](#overview)
 * [Components](#components)
+  * [Nginx](#nginx) 
   * [address-server](#address-server)
   * [person-server](#person-server)
   * [company-server](#company-server)
@@ -29,7 +30,7 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 ### Components
 
-#### nginx
+#### Nginx
 The nginx web server accepts requests from a client, forwards the request to a server 
 that can fullfill it, and returns the response from the server to the client.
 ```shell
