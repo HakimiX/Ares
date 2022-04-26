@@ -1,6 +1,14 @@
 version: '3'
 services:
 
+  nginx:
+    restart: always
+    build:
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - "8888:80"
+
   address-server:
     image: node:14-alpine
     working_dir: /app
@@ -18,16 +26,19 @@ services:
       - "5007:5007"
     command: /bin/sh -c "npm install && npm run dev"
 
-  #client:
-  #  image: node:14-alpine
-  #  working_dir: /app
-  #  volumes:
-  #    - /app/node_module
-  #    - ./client:/app
-  #  environment:
-  #    - WSD_SOCKET_PORT=0
-  #  ports:
-  #    - "3000:3000"
+  client:
+    image: node:14-alpine
+    working_dir: /app
+    volumes:
+      - /app/node_module
+      - ./client:/app
+    environment:
+      - WSD_SOCKET_PORT=0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - person-server
+    command: /bin/sh -c "npm install && npm run start"
 
   company-server:
     image: node:14-alpine

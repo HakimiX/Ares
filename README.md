@@ -29,6 +29,23 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 
 ### Components
 
+#### nginx
+The nginx web server accepts requests from a client, forwards the request to a server 
+that can fullfill it, and returns the response from the server to the client.
+```shell
+# Running on 
+http://localhost:8888
+
+# Upstream person-server
+http://localhost:8888/api/person/all
+
+# Upstream address-server
+http://localhost:8888/api/address/all
+
+# Upstream company-server 
+http://localhost:8888/api/company/all
+```
+
 #### address-server
 Express Server that fetches addresses from the MongoDB database.
 ```shell
