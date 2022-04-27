@@ -30,7 +30,7 @@ class DatabaseService {
   async getPersonById(id) {
     try {
       const person = await this.pgClient.query("SELECT * FROM person WHERE userId = $1", [parseInt(id)]);
-      return person.rows;
+      return person.rows.shift();
     } catch (err) {
       logger.error(`Failed to get person with userId: ${id}`, err);
       throw err

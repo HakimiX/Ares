@@ -34,7 +34,7 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
 The nginx web server accepts requests from a client, forwards the request to a server 
 that can fullfill it, and returns the response from the server to the client.
 ```shell
-# Running on 
+# Client running on
 http://localhost:8888
 
 # Upstream person-server
