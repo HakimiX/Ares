@@ -81,6 +81,18 @@ http://localhost:5008
 ```
 
 #### posts-server
+Apollo Server that fetches data from an external API and exposes
+a GraphQL API. 
+```shell
+# Running on 
+http://localhost:5009
+
+# Sample request
+curl --request POST \
+  --header 'content-type: application/json' \
+  --url http://localhost:5009/graphql \
+  --data '{"query":"query { __typename }"}'
+```
 
 #### pour-server
 Express Server that fetches data from an external API and populates pieces
