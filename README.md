@@ -81,8 +81,8 @@ http://localhost:5008
 ```
 
 #### posts-server
-Apollo Server that fetches data from an external API and exposes
-a GraphQL API. 
+Apollo Server that fetches data from an external API and exposes the data in a
+GraphQL API.
 ```shell
 # Running on 
 http://localhost:5009
