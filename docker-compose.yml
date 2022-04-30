@@ -61,7 +61,6 @@ services:
       - elasticsearch
     command: /bin/sh -c "npm install && npm run dev"
 
-
   person-server:
     image: node:14-alpine
     working_dir: /app
@@ -106,6 +105,22 @@ services:
       - "5006:5006"
     depends_on:
       - postgres
+    command: /bin/sh -c "npm install && npm run dev"
+
+  post-server:
+    image: node:14-alpine
+    working_dir: /app
+    volumes:
+      - /app/node_modules
+      - ./post-server:/app
+    env_file:
+      - "./.env.dev"
+    environment:
+      - LOG_LEVEL_DEFAULT=debug
+      - PORT=5009
+      - JSONPLACEHOLDER_API_BASE_URL=https://jsonplaceholder.typicode.com
+    ports:
+      - "5009:5009"
     command: /bin/sh -c "npm install && npm run dev"
 
   elasticsearch:
