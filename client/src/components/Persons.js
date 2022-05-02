@@ -19,6 +19,7 @@ const Persons = () => {
   return (
     <div className="padded-container">
       <h1>Persons</h1>
+      <p>Data from a REST API</p>
       <ul>
         {persons.map((person, index) => {
           return (

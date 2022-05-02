@@ -8,7 +8,7 @@ import Person from "./components/Person";
 import Companies from "./components/Companies";
 import Company from "./components/Company";
 import Addresses from "./components/Addresses";
-
+import Posts from "./components/Posts";
 
 const App = () => {
   return (
@@ -23,6 +23,7 @@ const App = () => {
             <Route path="/companies" exact component={Companies}/>
             <Route path="/companies/:id" exact component={Company}/>
             <Route path="/addresses" exact component={Addresses}/>
+            <Route path="/posts" exact component={Posts}/>
           </Switch>
         </div>
       </Router>

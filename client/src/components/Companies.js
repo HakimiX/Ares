@@ -21,6 +21,7 @@ const Companies = () => {
   return (
     <div className="padded-container">
       <h1>Companies</h1>
+      <p>Data from a REST API</p>
       <ul>
         {companies.map((company, index) => {
           return (
