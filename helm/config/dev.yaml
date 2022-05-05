@@ -1,2 +1,9 @@
 postgres:
-  password: postgres
+  pgpassword: "postgres"
+  pguser: "postgres"
+  pghost: "postgres"
+  pgdatabase: "postgres"
+  pgport: "5432"
+
+person_server:
+  port: "5005"

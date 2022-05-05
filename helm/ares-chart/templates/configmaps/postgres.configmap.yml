@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-config
+  namespace: default
+data:
+  PGUSER: {{ quote .Values.postgres.pguser }}
+  PGHOST: {{ quote .Values.postgres.pghost }}
+  PGDATABASE: {{ quote .Values.postgres.pgdatabase }}
+  PGPORT: {{ quote .Values.postgres.pgport }}
+

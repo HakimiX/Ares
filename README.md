@@ -195,6 +195,19 @@ docker-compose down
 ### Deployment
 
 #### Kubernetes
+Todo...
+
+Deploy Kubernetes resources using a Helm Chart: 
+```shell
+npm run helm:deploy
+```
+Accessing services (ClusterIP)
+```shell
+kubectl port-forward service/person-server-service 5005:5005
+
+# Navigate to 
+http://localhost:5005
+```
 
 #### Google Cloud
 

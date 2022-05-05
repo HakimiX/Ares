@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: person-server-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: person-server
+  template:
+    metadata:
+      labels:
+        component: person-server
+    spec:
+      containers:
+        - name: person-server
+          image: person-server:latest # change to docker hub image
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5005
+          envFrom:
+            - configMapRef:
+                name: postgres-config
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-password # secret name
+                  key: postgres-password # secret key
+
