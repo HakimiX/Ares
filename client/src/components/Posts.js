@@ -17,7 +17,7 @@ const Posts = () => {
       }
   `;
 
-  const { data, loading, error } = useQuery(POSTS_QUERY);
+  const {data, loading, error} = useQuery(POSTS_QUERY);
 
   if (loading) return "loading...";
   if (error) return <pre>{error.message}</pre>
@@ -26,12 +26,31 @@ const Posts = () => {
     <div className="padded-container">
       <h1>Posts</h1>
       <p>Data from a GraphQL API</p>
+
       <ul>
         {data.posts.map((post) => {
           return (
-            <Link to={`/posts/${post.id}`}>
-              <li key={post.id}>{post.title}</li>
-            </Link>
+            <div>
+              <h4>{post.title}</h4>
+              <div>
+                <table border="1">
+                  <thead>
+                  <tr>
+                    <th>UserID</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr>
+                    <td>{post.userId}</td>
+                    <td>{post.user.name}</td>
+                    <td>{post.user.username}</td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           )
         })}
       </ul>
