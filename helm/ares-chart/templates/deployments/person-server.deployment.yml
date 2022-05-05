@@ -17,7 +17,7 @@ spec:
           image: person-server:latest # change to docker hub image
           imagePullPolicy: IfNotPresent
           ports:
-            - containerPort: 5005
+            - containerPort: {{ .Values.person_server.port }}
           envFrom:
             - configMapRef:
                 name: postgres-config
