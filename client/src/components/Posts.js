@@ -33,7 +33,7 @@ const Posts = () => {
             <div>
               <h4>{post.title}</h4>
               <div>
-                <table border="1">
+                <table border="1">w
                   <thead>
                   <tr>
                     <th>UserID</th>

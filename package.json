@@ -1,0 +1,20 @@
+{
+  "name": "ares-project",
+  "version": "1.0.0",
+  "description": "Multi container application consisting of mulitple microservices and  data sources.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "helm:deploy": "helm upgrade ares-chart  helm/ares-chart$chartpostfix -f helm/config/dev.yaml --values helm/ares-chart/values.yaml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HakimiX/Ares.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HakimiX/Ares/issues"
+  },
+  "homepage": "https://github.com/HakimiX/Ares#readme"
+}
