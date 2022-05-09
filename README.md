@@ -216,3 +216,4 @@ http://localhost:5005
 * [Express JSON validation](https://simonplend.com/how-to-handle-request-validation-in-your-express-api/)
 * [Elasticsearch Index API's](https://www.elastic.co/guide/en/elasticsearch/reference/current/indices.html)
 * [Nginx Location](https://www.plesk.com/blog/various/nginx-configuration-guide/)
+* [helm](https://medium.com/swlh/how-to-run-locally-built-docker-images-in-kubernetes-b28fbc32cc1d)
