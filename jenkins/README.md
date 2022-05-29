@@ -1,11 +1,14 @@
 # Jenkins CI/CD on Kubernetes using Minikube
 
 * [Overview](#overview)
-* [Setup](#setup)
+* [Setup Jenkins Server](#setup-jenkins-server)
+* [Setup Job DSL](#setup-job-dsl)
 
 ### Overview
 
-### Setup
+TODO
+
+### Setup Jenkins Server
 
 1. Create a Minikube profile
 ```shell
@@ -44,3 +47,10 @@ jenkins   NodePort   10.110.96.160   <none>        8080:31598/TCP,50000:31919/TC
 # Navigate to 
 http://111.622.54.2:31598
 ```
+6. Complete the initial Jenkins setup guide and install necessary plugins.
+The initial admin user password is outputted in the Jenkins pod logs.
+It may also be found at: `/var/jenkins_home/secrets/initialAdminPassword`
+
+### Setup Job DSL
+Automate Jenkins job configuration using Job DSL. 
+
