@@ -66,13 +66,13 @@ You may need to approve the `seed.groovy` script if you encounter the following 
 Processing DSL script jenkins/jobs/seed.groovy
 ERROR: script not yet approved for use
 Finished: FAILURE
-
-# Approve script 
-# Manage Jenkins -> In-process Script Approval -> Approve
 ```
+Navigate to Manage Jenkins → In-process Script Approval → Approve
+
+![](resources/jenkins-seed-approve.png)
 
 The `deploy-applications` pipeline should automatically be created when the `seed`
-pipeline finished successfully. 
+pipeline finishes successfully. 
 
 ![](resources/jenkins-seed-success.png)
 
