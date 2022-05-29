@@ -28,7 +28,7 @@ pipelineJob('deploy-applications') {
                     branch('master')
                 }
             }
-            scriptPath('Jenkinsfile.deploy-applications')
+            scriptPath('jenkins/Jenkinsfile.deploy-applications')
             lightweight()
         }
     }
