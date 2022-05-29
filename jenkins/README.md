@@ -76,6 +76,40 @@ pipeline finishes successfully.
 
 ![](resources/jenkins-seed-success.png)
 
+### Configure Jenkins and Minikube connectivity
+
+#### Setup Minikube credential
+You'll first need to create a credential set for the Jenkins controller to access the Minikube 
+cluster. To do this, perform the following steps: 
+
+1. Replace the certificate references in the `~/.kube/config` file with the actual certificates
+
+![](resources/kube-config-before.png)
+
+Replace each certificate reference with the actual certificate base64 encoded and append 
+the yaml keys with `-data`
+```shell
+# Get certificate content base64 encoded
+cat <certificate-file-path> | base64
+
+# Append the keys with "-data"
+certificate-authority -> certificate-authority-data
+client-certificate -> client-certificate-data
+client-key -> client-key-data  
+```
+
+The `~/.kube/config` should look like this
+![](resources/kube-config-after.png)
+
+todo....
+
+#### Create a Cloud Configuration on the Jenkins Controller
+The next step is to create a cloud configuration for the Minikube cluster. 
+
+1. In the Jenkins UI, go to Manage Jenkins → Manage Nodes and Clouds → Configure Clouds
+2. The following parameters must be set 
+
+
 
 ### Jenkins Plugins 
 
