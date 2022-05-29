@@ -56,7 +56,25 @@ It may also be found at: `/var/jenkins_home/secrets/initialAdminPassword`
 Automate Jenkins job configuration using Job DSL. 
 
 1. Install the Job DSL plugin. 
+2. Create a Freestyle Project called `seed` and configure the Souce Code Management and Build Job DSL
 
+![](resources/jenkins-seed-scm.png)
+![](resources/jenkins-seed-build.png)
+
+You may need to approve the `seed.groovy` script if you encounter the following error:
+```shell
+Processing DSL script jenkins/jobs/seed.groovy
+ERROR: script not yet approved for use
+Finished: FAILURE
+
+# Approve script 
+# Manage Jenkins -> In-process Script Approval -> Approve
+```
+
+The `deploy-applications` pipeline should automatically be created when the `seed`
+pipeline finished successfully. 
+
+![](resources/jenkins-seed-success.png)
 
 
 ### Jenkins Plugins 
