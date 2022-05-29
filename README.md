@@ -4,7 +4,7 @@ Multi container application consisting of mulitple microservices and
 data sources. 
 
 **Technologies**: Docker, Kubernetes, Helm, Nginx, React, Nodejs, Express, Graphql, Postgres,
-MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
+MongoDB, Elasticsearch, Logstash, Kibana, Jenkins, and Google Cloud,
 
 * [Overview](#overview)
 * [Components](#components)
