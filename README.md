@@ -19,8 +19,11 @@ MongoDB, Elasticsearch, Logstash, Kibana, and Google Cloud,
   * [Postgres](#postgres)
   * [MongoDB](#mongodb)
 * [Local Development](#local-development)
+  * [Dockerfile](#dockerfile)
+  * [Docker Compose](#docker-compose)
+  * [Deploy Kubernetes Manifests to Minikube](#deploy-kubernetes-manifests-to-minikube)
 * [CI/CD](#cicd)
-  * [Travis CI](#travis-ci)
+  * [Jenkins](#jenkins)
 * [Deployment](#deployment)
   * [Kubernetes](#kubernetes)
   * [Google Cloud](#google-cloud)
@@ -188,9 +191,14 @@ docker-compose up
 docker-compose down
 ```
 
-### CI/CD
+#### Deploy Kubernetes Manifests to Minikube
+The local Jenkins server is integrated with a local Kubernetes Cluster (Minikube) and Google Cloud. 
 
-#### Travis CI
+
+### CI/CD
+#### Jenkins
+Continuous Integration and Continuous Delivery using a local Jenkins server running on Kubernetes using Minikube. 
+
 
 ### Deployment
 
