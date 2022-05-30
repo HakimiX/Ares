@@ -109,8 +109,6 @@ The next step is to create a cloud configuration for the Minikube cluster.
 1. In the Jenkins UI, go to Manage Jenkins → Manage Nodes and Clouds → Configure Clouds
 2. The following parameters must be set 
 
-
-
 ### Jenkins Plugins 
 
 * [Kubernetes](https://plugins.jenkins.io/kubernetes/)
