@@ -192,13 +192,11 @@ docker-compose down
 ```
 
 #### Deploy Kubernetes Manifests to Minikube
-The local Jenkins server is integrated with a local Kubernetes Cluster (Minikube) and Google Cloud. 
-
+The local Jenkins server is integrated with a local Kubernetes Cluster (Minikube) and Google Cloud.
 
 ### CI/CD
 #### Jenkins
-Continuous Integration and Continuous Delivery using a local Jenkins server running on Kubernetes using Minikube. 
-
+Continuous Integration and Continuous Delivery using a local Jenkins server running on Kubernetes using Minikube.
 
 ### Deployment
 
@@ -218,6 +216,8 @@ http://localhost:5005
 ```
 
 #### Google Cloud
+
+TODO...
 
 ### Source
 
