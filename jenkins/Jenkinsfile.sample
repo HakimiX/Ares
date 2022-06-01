@@ -1,0 +1,25 @@
+podTemplate(label: 'builder',
+            containers: [
+                    containerTemplate(name: 'docker', image: 'docker', command: 'cat', ttyEnabled: true),
+            ],
+            volumes: [
+                    hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
+            ]) {
+
+        node('builder') {
+            stage('start'){
+                sh 'echo it works'
+            }
+
+            stage('build'){
+                container('docker') {
+                    sh 'echo building container..'
+                }
+            }
+            stage('test') {
+               container('docker') {
+                sh 'echo running test inside container...'
+               }
+            }
+         }
+}
