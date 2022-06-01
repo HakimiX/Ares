@@ -3,6 +3,9 @@
 * [Overview](#overview)
 * [Setup Jenkins Server](#setup-jenkins-server)
 * [Setup Job DSL](#setup-job-dsl)
+* [Configure Jenkins and Minikube connectivity](#configure-jenkins-and-minikube-connectivity)
+  * [Setup Minikube credential](#setup-minikube-credential)
+  * [Create a Cloud Configuration on the Jenkins Controller](#create-a-cloud-configuration-on-the-jenkins-controllergits)
 * [Jenkins Plugins](#jenkins-plugins)
 
 ### Overview
