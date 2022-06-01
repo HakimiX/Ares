@@ -37,9 +37,10 @@ COPY root /root/
 #ln -s /root/.nvm/versions/node/v16.13.2/bin/npm /usr/bin/npm ;
 
 #ENV HELM_HOME=/root/.helm
-RUN chmod 400 /root/.ssh/id_rsa
-RUN git config --global user.email "mustafa.hakimi@outlook.dk";\
-    git config --global user.name "HakimiX"
+#RUN chmod 400 /root/.ssh/id_rsa
+
+#RUN git config --global user.email "mustafa.hakimi@outlook.dk";\
+#    git config --global user.name "HakimiX"
 
 # Environment Variables (Jenkins Parameters)
 ENV PROJECTS=EMPTY
