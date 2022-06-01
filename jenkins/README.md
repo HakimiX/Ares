@@ -101,13 +101,16 @@ client-key -> client-key-data
 The `~/.kube/config` should look like this
 ![](resources/kube-config-after.png)
 
-todo....
+Next, create a Jenkins credential by uploading your `~/.kube/config` file as a "Secret File" credential
+
+![](resources/jenkins-minikube-config.png)
 
 #### Create a Cloud Configuration on the Jenkins Controller
 The next step is to create a cloud configuration for the Minikube cluster. 
 
 1. In the Jenkins UI, go to Manage Jenkins → Manage Nodes and Clouds → Configure Clouds
 2. The following parameters must be set 
+
 
 ### Jenkins Plugins 
 
