@@ -12,19 +12,17 @@ podTemplate(label: 'builder',
                 checkout scm
             }
 
-            stage('Debug'){
-              sh "echo outside of container.."
-            }
-
             stage('Build'){
               container('docker') {
-                sh 'echo building...'
+                sh 'echo Building Docker Image...'
+                sh 'docker build -f ./cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest cicd/'
               }
             }
 
             stage('Run') {
               container('docker') {
-                sh 'echo running'
+                sh 'echo Running Docker Image...'
+                sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
               }
             }
         }
