@@ -15,7 +15,7 @@ podTemplate(label: 'builder',
             stage('Build'){
               container('docker') {
                 sh 'echo Building Docker Image...'
-                sh 'docker build -f .jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest jenkins/cicd/'
+                sh 'docker build -f ./jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest jenkins/cicd/'
               }
             }
 
