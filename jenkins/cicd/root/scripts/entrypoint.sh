@@ -7,6 +7,9 @@ echo 'cloning repository...'
 git clone https://github.com/HakimiX/Ares.git
 
 echo 'done cloning'
+
+echo "entering repo"
+cd Ares
 ls
 
 #cd ~/pyscripts
