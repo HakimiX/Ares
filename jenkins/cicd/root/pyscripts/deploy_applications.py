@@ -6,7 +6,8 @@ from environments import environment_configs
 def change_kubernetes_context(env):
     print('Changing Kubernetes Context')
     #cmd = 'kubectl config use-context {}'.format(environment_configs[env].kubernetes_context)
-    cmd = 'kubectl config get-contexts'
+    #cmd = 'kubectl config get-contexts'
+    cmd = 'kubectl config current-context'
     cmd_result = os.system(cmd)
     if cmd_result != 0:
         print('Failed to change kubernetes context')
