@@ -9,6 +9,8 @@ echo 'homefolder content...'
 cd ~
 ls -a
 
+echo "environment variables"
+env
 
 echo 'cloning repository...'
 
