@@ -4,6 +4,11 @@
 
 echo 'The entrypoint script works...'
 
+echo 'content of image..'
+ls -ahl
+
+
+
 echo 'cloning repository...'
 
 git clone https://github.com/HakimiX/Ares.git

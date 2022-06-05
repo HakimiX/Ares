@@ -22,7 +22,7 @@ podTemplate(label: 'builder',
             stage('Run') {
               container('docker') {
                 sh 'echo Running Docker Image...'
-                sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
+                sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /.kube/$ARES_MINIKUBE_CONFIG:/.kube/$ARES_MINIKUBE_CONFIG:ro -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
               }
             }
         }
