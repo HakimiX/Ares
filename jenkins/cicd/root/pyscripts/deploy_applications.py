@@ -25,4 +25,5 @@ def initialize():
           .format(projects, env, branch))
     handler(projects, env, branch)
 
+
 initialize()
