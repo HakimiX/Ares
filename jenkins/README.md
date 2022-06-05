@@ -118,3 +118,7 @@ The next step is to create a cloud configuration for the Minikube cluster.
 
 * [Kubernetes](https://plugins.jenkins.io/kubernetes/)
 * [Job DSL](https://plugins.jenkins.io/job-dsl/)
+
+### Sources
+
+* [Mount Jenkins credentials](https://stackoverflow.com/questions/65188807/passing-jenkins-secrets-file-to-docker-image-run)
