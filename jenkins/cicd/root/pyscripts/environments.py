@@ -13,7 +13,7 @@ class Environment:
             .format(self.kubernetes_context, self.kubernetes_namespace, self.chart_postfix)
 
 
-environment_comfigs = {
+environment_configs = {
     'dev': Environment('ares-jenkins', 'ares', 'dev'),
     'test': Environment('ares-jenkins-test', 'ares', 'test'),
     'prep': Environment('ares-jenkins-prep', 'ares', 'test'),
