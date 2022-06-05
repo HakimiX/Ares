@@ -11,10 +11,7 @@ def initialize():
     env = os.getenv('ENVIRONMENT')
     branch = os.getenv('BRANCH')
 
-    print('''
-    Environment variables
-    Projects: {}, Environment: {}, Branch: {} 
-    '''.format(projects, env, branch))
+    print("Environment variables, \nProjects: {}, \nEnvironment: {}, \nBranch: {}".format(projects, env, branch))
 
 
 initialize()
