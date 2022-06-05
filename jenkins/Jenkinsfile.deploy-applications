@@ -25,7 +25,7 @@ podTemplate(label: 'builder',
                                       sh 'echo $ARES_MINIKUBE_CONFIG'
                                       sh 'cat $ARES_MINIKUBE_CONFIG'
 
-                                      sh '#!/bin/sh -e\n' + "echo '${ARES_MINIKUBE_CONFIG}' > /home/.kube/config
+                                      sh '#!/bin/sh -e\n' + "echo '${ARES_MINIKUBE_CONFIG}' > /home/.kube/config"
 
                                       sh 'echo Running Docker Image...'
                                       sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /.kube/config:/.kube/config:ro -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
