@@ -22,6 +22,8 @@ podTemplate(label: 'builder',
             stage('Run') {
                withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                                   container('docker') {
+                                      sh 'echo $ARES_MINIKUBE_CONFIG'
+                                      sh 'cat $ARES_MINIKUBE_CONFIG'
                                       sh 'echo Running Docker Image...'
                                       sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -e ${ARES_MINIKUBE_CONFIG} -v ${ARES_MINIKUBE_CONFIG}:/.kube/${ARES_MINIKUBE_CONFIG}:ro -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
                                  }
