@@ -21,7 +21,8 @@ def initialize():
     env = os.getenv('ENVIRONMENT')
     branch = os.getenv('BRANCH')
 
-    print("Initializing environment variables \nProjects: {} \nEnvironment: {} \nBranch: {}".format(projects, env, branch))
+    print("Initializing environment variables \nProjects: {} \nEnvironment: {} \nBranch: {}"
+          .format(projects, env, branch))
     handler(projects, env, branch)
 
 initialize()
