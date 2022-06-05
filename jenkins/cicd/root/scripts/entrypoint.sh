@@ -5,7 +5,7 @@
 echo 'The entrypoint script works...'
 
 echo 'content of image..'
-ls -ahl
+ls -a
 
 
 
