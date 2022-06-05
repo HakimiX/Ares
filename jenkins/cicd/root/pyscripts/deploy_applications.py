@@ -13,7 +13,7 @@ def initialize():
 
     print('''
     Environment variables
-    Projects: %s, Environment: %s, Branch: %s 
+    Projects: {}, Environment: {}, Branch: {} 
     '''.format(projects, env, branch))
 
 
