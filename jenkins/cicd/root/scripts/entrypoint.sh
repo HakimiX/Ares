@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# This script is meant for additional bootstrapping.
+
 echo 'The entrypoint script works...'
 
 echo 'cloning repository...'
