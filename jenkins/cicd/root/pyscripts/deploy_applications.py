@@ -1,6 +1,16 @@
 import os
 
 
+def change_kubernetes_context(env):
+    print('Changing Kubernetes Context')
+
+
+def handler(projects, env, branch):
+    """Main pipeline handler"""
+    print('Running main flow')
+    change_kubernetes_context(env)
+
+
 def initialize():
     """Initialize parameters and environment variables"""
     env_vars = ['PROJECTS', 'ENVIRONMENT', 'BRANCH']
@@ -11,7 +21,7 @@ def initialize():
     env = os.getenv('ENVIRONMENT')
     branch = os.getenv('BRANCH')
 
-    print("Environment variables \nProjects: {} \nEnvironment: {} \nBranch: {}".format(projects, env, branch))
-
+    print("Initializing environment variables \nProjects: {} \nEnvironment: {} \nBranch: {}".format(projects, env, branch))
+    handler(projects, env, branch)
 
 initialize()
