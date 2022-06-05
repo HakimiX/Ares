@@ -8,11 +8,8 @@ echo 'cloning repository...'
 
 git clone https://github.com/HakimiX/Ares.git
 
-echo 'done cloning'
+echo 'done cloning, repo content'
+ls Ares
 
-echo "entering repo"
-cd Ares
-ls
-
-#cd ~/pyscripts
-#python3 ./deploy_applications.py
+cd ~/pyscripts
+python3 ./deploy_applications.py
