@@ -9,6 +9,9 @@ echo 'homefolder content...'
 cd ~
 ls -a
 
+echo "content of .kube"
+ls .kube
+
 echo "environment variables"
 env
 
