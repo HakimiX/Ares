@@ -20,14 +20,12 @@ podTemplate(label: 'builder',
             }
 
             stage('Run') {
-              steps {
-                withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variables: 'ARES_MINIKUBE_CONFIG')]) {
-                    container('docker') {
-                        sh 'echo Running Docker Image...'
-                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
-                   }
-                }
-              }
+               withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variables: 'ARES_MINIKUBE_CONFIG')]) {
+                                  container('docker') {
+                                      sh 'echo Running Docker Image...'
+                                      sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
+                                 }
+                              }
             }
         }
     }
