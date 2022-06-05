@@ -4,9 +4,10 @@
 
 echo 'The entrypoint script works...'
 
-echo 'content of image..'
+echo 'content of image...'
+echo 'homefolder content...'
+cd ~
 ls -a
-
 
 
 echo 'cloning repository...'
