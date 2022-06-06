@@ -4,6 +4,9 @@ FROM alpine:3.16 AS Builder
 
 ARG ARES_MINIKUBE_CONFIG
 
+RUN echo "content of ARES_MINIKUBE_CONFIG" # TODO remove this
+RUN cat $ARES_MINIKUBE_CONFIG # TODO remove this
+
 # Create .kube/config
 RUN mkdir .kube
 RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
