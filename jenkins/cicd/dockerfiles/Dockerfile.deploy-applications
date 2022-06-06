@@ -1,34 +1,17 @@
-# Builder container is responsible for writting args (Jenkins credentials)
+# The Builder container is responsible for writting args (Jenkins credentials)
 # to the appropriate files (.kube/config, .ssh/id_rsa, etc.)
 FROM alpine:3.16 AS Builder
 
 ARG DUMMY_NAME
 RUN echo "Oh dang look at that $DUMMY_NAME"
 RUN echo "Writing arg to file..."
-RUN echo "$DUMMY_NAME" > config
+RUN echo "$DUMMY_NAME" > .kube/config
 
 
-
+# The container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
-COPY --from=builder config ./root/
-RUN echo "content of layer..."
-RUN ls
-
-# Args defined in Jenkinsfile
-#ARG DUMMY_NAME
-#RUN echo "Oh dang look at that $DUMMY_NAME"
-#RUN echo "Writing arg to file..."
-#RUN echo "$DUMMY_NAME" > config
-
-#RUN echo "content of layer..."
-#RUN ls
-
-#RUN echo "content of config file..."
-#RUN cat config
-
-#RUN echo "adding file to root..."
-#ADD config /root/config
+COPY --from=builder .kube ./root/
 
 ENV DEBIAN_FRONTEND=nonintercative
 
@@ -80,4 +63,4 @@ ENV ENVIRONMENT=EMPTY
 ENV BRANCH=EMPTY
 
 WORKDIR /root/scripts
-ENTRYPOINT ["sh", "entrypoint.sh", "$DUMMY_NAME"]
+ENTRYPOINT ["sh", "entrypoint.sh"]
