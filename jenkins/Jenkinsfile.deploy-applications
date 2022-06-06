@@ -28,7 +28,7 @@ podTemplate(label: 'builder',
                         sh 'mkdir jenkins/cicd/root/.kube'
                         sh 'echo content of container...'
                         sh 'ls -a'
-                        sh "echo '${ARES_MINIKUBE_CONFIG}' > jenkins/cicd/root/.kube/config"
+                        sh "echo 'hello my name is jeff' > jenkins/cicd/root/.kube/config"
 
                         sh 'echo content of jenkins/cicd/root/.kube'
                         sh 'ls -a jenkins/cicd/root/.kube'
