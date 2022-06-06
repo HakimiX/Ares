@@ -1,15 +1,15 @@
 # The Builder container is responsible for writting args (Jenkins credentials)
 # to the appropriate files (.kube/config, .ssh/id_rsa, etc.)
-FROM alpine:3.16 AS Builder
+#FROM alpine:3.16 AS Builder
 
-ARG ARES_MINIKUBE_CONFIG
+#ARG ARES_MINIKUBE_CONFIG
 
 # Create .kube/config
-RUN mkdir .kube
-RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
+#RUN mkdir .kube
+#RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
 
-RUN echo "content of kube/config"
-RUN cat .kube/config
+#RUN echo "content of kube/config"
+#RUN cat .kube/config
 
 # The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
@@ -31,7 +31,7 @@ WORKDIR /app
 #RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz               # TODO: uncomment
 #RUN ln -s /app/linux-amd64/helm /usr/bin/helm3              # TODO: uncomment
 
-COPY root /root/
+COPY ../root /root/
 
 #RUN ln -s /root/.nvm/versions/node/v16.13.2/bin/node /usr/bin/node ;\
 #ln -s /root/.nvm/versions/node/v16.13.2/bin/npm /usr/bin/npm ;
