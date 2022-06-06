@@ -12,8 +12,8 @@ echo 'homefolder content...'
 cd ~
 ls -a
 
-echo "content of .kube"
-ls .kube
+echo "content of config"
+cat config
 
 echo "environment variables"
 env
