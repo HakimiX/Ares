@@ -30,6 +30,9 @@ podTemplate(label: 'builder',
                         sh 'ls -a'
                         sh "echo '${ARES_MINIKUBE_CONFIG}' > jenkins/cicd/root/.kube/config"
 
+                        sh 'echo content of jenkins/cicd/root/.kube'
+                        sh 'ls -a jenkins/cicd/root/.kube'
+
 
                         sh 'echo Running Docker Image...'
                         sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
