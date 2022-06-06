@@ -5,6 +5,8 @@ FROM alpine:3.16 AS Builder
 ARG DUMMY_NAME
 RUN echo "Oh dang look at that $DUMMY_NAME"
 RUN echo "Writing arg to file..."
+
+RUN mkdir .kube
 RUN echo "$DUMMY_NAME" > .kube/config
 
 
