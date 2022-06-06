@@ -6,11 +6,11 @@ echo 'homefolder content...'
 cd ~
 ls -a
 
-echo "enter kube directory"
-cd .kube
-ls
+echo "content of kube directory"
+ls .kube
+
 echo "content of .kube/config"
-cat config
+cat .kube/config
 
 echo "environment variables"
 env
