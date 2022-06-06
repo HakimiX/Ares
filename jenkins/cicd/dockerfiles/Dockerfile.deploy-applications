@@ -1,19 +1,33 @@
-FROM ubuntu:20.04
 
-# Args defined in Jenkinsfile
+FROM alpine:3.16 AS Builder
+
 ARG DUMMY_NAME
 RUN echo "Oh dang look at that $DUMMY_NAME"
 RUN echo "Writing arg to file..."
 RUN echo "$DUMMY_NAME" > config
 
+
+
+FROM ubuntu:20.04
+
+COPY --from=builder config ./
 RUN echo "content of layer..."
 RUN ls
 
-RUN echo "content of config file..."
-RUN cat config
+# Args defined in Jenkinsfile
+#ARG DUMMY_NAME
+#RUN echo "Oh dang look at that $DUMMY_NAME"
+#RUN echo "Writing arg to file..."
+#RUN echo "$DUMMY_NAME" > config
 
-RUN echo "adding file to root..."
-ADD config /root/config
+#RUN echo "content of layer..."
+#RUN ls
+
+#RUN echo "content of config file..."
+#RUN cat config
+
+#RUN echo "adding file to root..."
+#ADD config /root/config
 
 ENV DEBIAN_FRONTEND=nonintercative
 
