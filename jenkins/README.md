@@ -7,6 +7,8 @@
   * [Setup Minikube credential](#setup-minikube-credential)
   * [Create a Cloud Configuration on the Jenkins Controller](#create-a-cloud-configuration-on-the-jenkins-controllergits)
 * [Jenkins Plugins](#jenkins-plugins)
+* [Troubleshooting](#troubleshooting)
+* [Sources](#sources)
 
 ### Overview
 
@@ -118,6 +120,26 @@ The next step is to create a cloud configuration for the Minikube cluster.
 
 * [Kubernetes](https://plugins.jenkins.io/kubernetes/)
 * [Job DSL](https://plugins.jenkins.io/job-dsl/)
+
+### Troubleshooting
+
+#### No space left on device
+If you encounter the following error, you need to free up space on the Minikube node.
+```shell
+Exception in thread "main" java.nio.file.FileSystemException: /home/jenkins/agent/remoting: No space left on device
+	at java.base/sun.nio.fs.UnixException.translateToIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
+	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
+```
+Enter the minikube node and delete stale docker container and images.
+```shell
+# Enter minikube node
+minikube ssh
+
+# Remove stale containers and images
+docker rm <container-id>
+docker image rm <image-id>
+```
 
 ### Sources
 
