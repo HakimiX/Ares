@@ -9,6 +9,9 @@ RUN echo "$DUMMY_NAME" > config
 RUN echo "content of layer..."
 RUN ls
 
+RUN echo "content of config file..."
+RUN cat config
+
 RUN echo "adding file to root..."
 ADD config /root/config
 
