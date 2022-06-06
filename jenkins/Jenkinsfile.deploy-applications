@@ -26,7 +26,7 @@ podTemplate(label: 'builder',
                     container('docker') {
 
                         sh 'mkdir jenkins/cicd/root/.kube'
-                        sh "cp \$ARES_MINIKUBE_CONFIG /jenkins/cicd/root/.kube/config"
+                        sh "cp \$ARES_MINIKUBE_CONFIG /jenkins/cicd/root/.kube/"
 
                         sh 'echo Running Docker Image...'
                         sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /jenkins/cicd/root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
