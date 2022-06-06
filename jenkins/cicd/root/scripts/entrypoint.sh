@@ -1,6 +1,9 @@
 #!/bin/bash
-
 # This script is meant for additional bootstrapping.
+
+dummy_name=$1
+
+echo "the arg content: $dummy_name"
 
 echo 'The entrypoint script works...'
 

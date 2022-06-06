@@ -40,7 +40,6 @@ RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz
 RUN ln -s /app/linux-amd64/helm /usr/bin/helm3
 
 COPY root /root/
-COPY config /root/.kube/config
 
 #RUN ln -s /root/.nvm/versions/node/v16.13.2/bin/node /usr/bin/node ;\
 #ln -s /root/.nvm/versions/node/v16.13.2/bin/npm /usr/bin/npm ;
@@ -57,4 +56,4 @@ ENV ENVIRONMENT=EMPTY
 ENV BRANCH=EMPTY
 
 WORKDIR /root/scripts
-ENTRYPOINT ["sh", "entrypoint.sh"]
+ENTRYPOINT ["sh", "entrypoint.sh", "$DUMMY_NAME"]
