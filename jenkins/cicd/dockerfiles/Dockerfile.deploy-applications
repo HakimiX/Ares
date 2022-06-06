@@ -2,19 +2,13 @@
 # to the appropriate files (.kube/config, .ssh/id_rsa, etc.)
 FROM alpine:3.16 AS Builder
 
-ARG DUMMY_NAME
-RUN echo "Oh dang look at that $DUMMY_NAME"
-RUN echo "Writing arg to file..."
+ARG ARES_MINIKUBE_CONFIG
 
+# Create .kube/config
 RUN mkdir .kube
-RUN echo "$DUMMY_NAME" > /.kube/config
+RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
 
-RUN echo "content of builder dir (dockerfile)"
-RUN ls -a
-RUN ls -a .kube
-
-
-# The container that is responisble for installing depenedencies
+# The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
 COPY --from=builder .kube ./root/.kube
