@@ -17,36 +17,16 @@ RUN ls -a root
 
 ENV DEBIAN_FRONTEND=nonintercative
 
-# Install Python3
-RUN apt-get -y update ; \
-apt-get install -y apt-utils software-properties-common
-RUN apt-get install -y python3 && ln -sf python3 /usr/bin/python
-RUN apt-get update ; apt-get install -y git curl gradle wget tar unzip gzip python3-pip
-RUN pip3 install docker gitpython
-
-# Install Kubectl
-RUN curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
-
-# Install Docker
-RUN apt-get install -y \
-  ca-certificates \
-  gnupg \
-  lsb-release
-RUN \
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - ; \
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" ; \
-apt-get update -y; \
-apt-get install -y docker-ce docker-ce-cli containerd.io
-RUN chmod u+x kubectl && mv kubectl /bin/kubectl
+# TODO: dependencies here..
 
 # Setting working directory
 RUN mkdir /root/.ssh;mkdir /cicd;mkdir /app # TODO: is this necessary?
 WORKDIR /app
 
 # Install Helm
-RUN wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz
-RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz
-RUN ln -s /app/linux-amd64/helm /usr/bin/helm3
+#RUN wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz # TODO: uncomment
+#RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz               # TODO: uncomment
+#RUN ln -s /app/linux-amd64/helm /usr/bin/helm3              # TODO: uncomment
 
 COPY root /root/
 
