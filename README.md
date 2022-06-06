@@ -196,7 +196,8 @@ The local Jenkins server is integrated with a local Kubernetes Cluster (Minikube
 
 ### CI/CD
 #### Jenkins
-Continuous Integration and Continuous Delivery using a local Jenkins server running on Kubernetes using Minikube.
+Continuous Integration and Continuous Delivery using a local Jenkins server running on Kubernetes using Minikube.<br>
+The Jenkins documentation is located [here](jenkins/README.md).
 
 ### Deployment
 
