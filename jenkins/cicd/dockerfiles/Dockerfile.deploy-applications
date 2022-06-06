@@ -7,13 +7,13 @@ RUN echo "Oh dang look at that $DUMMY_NAME"
 RUN echo "Writing arg to file..."
 
 RUN mkdir .kube
-RUN echo "$DUMMY_NAME" > .kube/config
+RUN echo "$DUMMY_NAME" > /.kube/config
 
 
 # The container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
-COPY --from=builder .kube ./root/
+COPY --from=builder /.kube ./root/
 
 ENV DEBIAN_FRONTEND=nonintercative
 
