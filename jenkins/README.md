@@ -131,7 +131,7 @@ Exception in thread "main" java.nio.file.FileSystemException: /home/jenkins/agen
 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
 	at java.base/sun.nio.fs.UnixException.rethrowAsIOException(Unknown Source)
 ```
-Enter the minikube node and delete stale docker container and images.
+Enter the minikube node and delete stale docker containers and images.
 ```shell
 # Enter minikube node
 minikube ssh
