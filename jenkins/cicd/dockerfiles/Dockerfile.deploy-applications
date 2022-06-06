@@ -1,21 +1,18 @@
 # The Builder container is responsible for writting args (Jenkins credentials)
 # to the appropriate files (.kube/config, .ssh/id_rsa, etc.)
-FROM alpine:3.16 AS Builder
+#FROM alpine:3.16 AS Builder
 
-ARG ARES_MINIKUBE_CONFIG
-
-RUN echo "content of ARES_MINIKUBE_CONFIG" # TODO remove this
-RUN cat $ARES_MINIKUBE_CONFIG # TODO remove this
+#ARG ARES_MINIKUBE_CONFIG
 
 # Create .kube/config
-RUN mkdir .kube
-RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
+#RUN mkdir .kube
+#RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
 
 # The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
-COPY --from=builder .kube ./root/.kube
-RUN echo "content of directory (dockerfile)"
+#COPY --from=builder .kube ./root/.kube
+#RUN echo "content of directory (dockerfile)"
 RUN ls -a root
 
 ENV DEBIAN_FRONTEND=nonintercative
