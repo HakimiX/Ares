@@ -10,7 +10,7 @@ RUN echo "$DUMMY_NAME" > config
 
 FROM ubuntu:20.04
 
-COPY --from=builder config ./
+COPY --from=builder config ./root/
 RUN echo "content of layer..."
 RUN ls
 
