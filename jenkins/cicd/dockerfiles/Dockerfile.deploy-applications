@@ -5,6 +5,8 @@ ARG DUMMY_NAME
 RUN echo "Oh dang look at that $DUMMY_NAME"
 RUN echo "Writing arg to file..."
 RUN echo "$DUMMY_NAME" > config
+RUN echo "content of layer..."
+RUN ls
 
 ENV DEBIAN_FRONTEND=nonintercative
 
