@@ -8,6 +8,7 @@ RUN echo "$DUMMY_NAME" > config
 RUN echo "content of layer..."
 RUN ls
 
+
 ENV DEBIAN_FRONTEND=nonintercative
 
 # Install Python3
@@ -42,6 +43,7 @@ RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz
 RUN ln -s /app/linux-amd64/helm /usr/bin/helm3
 
 COPY root /root/
+ADD config /root/config
 
 #RUN ln -s /root/.nvm/versions/node/v16.13.2/bin/node /usr/bin/node ;\
 #ln -s /root/.nvm/versions/node/v16.13.2/bin/npm /usr/bin/npm ;
