@@ -1,5 +1,9 @@
 FROM ubuntu:20.04
 
+# Args defined in Jenkinsfile
+ARG DUMMY_NAME
+RUN echo "Oh dang look at that $DUMMY_NAME"
+
 ENV DEBIAN_FRONTEND=nonintercative
 
 # Install Python3

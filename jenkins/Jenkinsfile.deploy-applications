@@ -15,22 +15,17 @@ podTemplate(label: 'builder',
             stage('Build'){
               container('docker') {
                 sh 'echo Building Docker Image...'
-                sh 'docker build -f ./jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest jenkins/cicd/'
+                sh 'docker build -f ./jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest --build-arg DUMMY_NAME=bob jenkins/cicd/'
               }
             }
 
             stage('Run') {
-               withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
-                                  container('docker') {
-                                      sh 'echo $ARES_MINIKUBE_CONFIG'
-                                      sh 'cat $ARES_MINIKUBE_CONFIG'
-
-                                      sh '#!/bin/sh -e\n' + "echo '${ARES_MINIKUBE_CONFIG}' > config" + "ls"
-
-                                      sh 'echo Running Docker Image...'
-                                      sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /config:/.kube/config:ro -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
-                                 }
-                              }
+                withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
+                    container('docker') {
+                        sh 'echo Running Docker Image...'
+                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
+                    }
+               }
             }
         }
     }
