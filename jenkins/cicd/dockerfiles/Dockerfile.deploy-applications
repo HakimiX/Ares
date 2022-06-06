@@ -15,7 +15,7 @@ FROM ubuntu:20.04
 
 COPY --from=builder .kube ./root/
 RUN echo "content of directory (dockerfile)"
-RUN ls -a
+RUN ls -a root
 
 ENV DEBIAN_FRONTEND=nonintercative
 
