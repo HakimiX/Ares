@@ -7,10 +7,10 @@ cd ~
 ls -a
 
 echo "content of kube directory"
-ls .kube
+ls root/.kube
 
 echo "content of .kube/config"
-cat .kube/config
+cat root/.kube/config
 
 echo "environment variables"
 env
