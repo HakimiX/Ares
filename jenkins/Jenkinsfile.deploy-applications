@@ -24,7 +24,6 @@ podTemplate(label: 'builder',
             stage('Run') {
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
-                        writeFile file: 'jenkins/cicd/root/.kube/config', text: readFile(ARES_MINIKUBE_CONFIG)
 
                         sh 'mkdir jenkins/cicd/root/.kube'
                         sh "cp \$ARES_MINIKUBE_CONFIG /jenkins/cicd/root/.kube/config"
