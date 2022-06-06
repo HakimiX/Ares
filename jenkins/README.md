@@ -140,6 +140,18 @@ minikube ssh
 docker rm <container-id>
 docker image rm <image-id>
 ```
+Optionally, create the `jenkins/scripts/docker-cleanup.sh` script inside the Minikube node and
+run the following commands to clean up:
+```shell
+# Remove stopped containers and untagged images
+sudo sh docker-cleanup.sh
+
+# Remove all stopped | running containers and untagged images
+sudo sh docker-cleanup.sh --reset
+
+# Remove dangling images
+sudo sh docker-cleanup.sh --remove-dangling
+```
 
 ### Sources
 
