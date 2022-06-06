@@ -26,7 +26,7 @@ podTemplate(label: 'builder',
                     container('docker') {
 
                         sh 'mkdir jenkins/cicd/root/.kube'
-                        sh '#!/bin/sh -e\n' + "echo '${ARES_MINIKUBE_CONFIG}' > config"
+                        sh "echo '${ARES_MINIKUBE_CONFIG}' > config"
                         sh "cp config jenkins/cicd/root/.kube/config"
 
                         sh 'echo Running Docker Image...'
