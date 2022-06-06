@@ -28,7 +28,7 @@ podTemplate(label: 'builder',
                         sh 'mkdir .kube'
                         sh 'echo content of container...'
                         sh 'ls -a'
-                        sh '#!/bin/sh -e\n' + "echo '${ARES_MINIKUBE_CONFIG}' > .kube/config"
+                        sh "echo '${ARES_MINIKUBE_CONFIG}' > .kube/config"
 
 
                         sh 'echo Running Docker Image...'
