@@ -9,6 +9,10 @@ RUN echo "Writing arg to file..."
 RUN mkdir .kube
 RUN echo "$DUMMY_NAME" > /.kube/config
 
+RUN echo "content of builder dir (dockerfile)"
+RUN ls -a
+RUN ls -a .kube
+
 
 # The container that is responisble for installing depenedencies
 FROM ubuntu:20.04
