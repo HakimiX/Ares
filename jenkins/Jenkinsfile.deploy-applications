@@ -22,22 +22,15 @@ podTemplate(label: 'builder',
             }
 
             stage('Run') {
-                withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
+                withCredentials([file(credentialsId: ARES_MINIKUBE_CONFIG, variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
-
-                        sh 'mkdir jenkins/cicd/root/.kube'
-                        sh 'echo content of container...'
-                        sh 'ls -a'
-                        sh '#!/bin/sh -e\n' + "echo bob is cool > jenkins/cicd/root/.kube/config"
-
-                        sh 'echo content of jenkins/cicd/root/.kube'
-                        sh 'ls -a jenkins/cicd/root/.kube'
-
+                        writeFile file: 'jenkins/cicd/root/.kube/config', text: readFile(ARES_MINIKUBE_CONFIG)
 
                         sh 'echo Running Docker Image...'
                         sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /jenkins/cicd/root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
                     }
-               }
+
+                }
             }
         }
     }
