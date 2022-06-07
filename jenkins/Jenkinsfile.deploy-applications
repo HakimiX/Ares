@@ -26,7 +26,7 @@ podTemplate(label: 'builder',
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
                         sh 'echo Running Docker Image...'
-                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /root/.kube:/.kube/ -e KUBECONFIG=.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
+                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v ~/.kube:/.kube/ -e KUBECONFIG=.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
                     }
                 }
             }
