@@ -9,6 +9,7 @@ RUN mkdir .kube
 RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
 
 RUN echo "content of kube/config"
+RUN ls -a .kube
 RUN cat .kube/config
 
 # The main container that is responisble for installing depenedencies
