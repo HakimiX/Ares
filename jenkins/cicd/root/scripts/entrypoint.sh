@@ -10,7 +10,7 @@ ls -a
 #ls .kube
 
 echo "content of kube/config"
-cat kube/config
+cat .kube/config
 
 #echo "content of client dir"
 #ls -a client
