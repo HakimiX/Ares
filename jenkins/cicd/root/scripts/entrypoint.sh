@@ -12,11 +12,8 @@ ls -a
 #echo "content of .kube/config"
 #cat .kube/config
 
-#echo "content of client dir"
-#ls -a client
-
-echo "content of gitignore"
-cat .gitignore
+echo "content of client dir"
+ls -a client
 
 echo "environment variables"
 env

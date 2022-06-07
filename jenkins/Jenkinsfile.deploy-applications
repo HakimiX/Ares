@@ -5,6 +5,7 @@ podTemplate(label: 'builder',
             ],
             volumes: [
                     hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
+                    hostPathVolume(hostPath: '/home/jenkins/agent/workspace/deploy-applications/client', mountPath: '/home/jenkins/agent/workspace/deploy-applications/client'),
             ]) {
 
         node('builder') {
