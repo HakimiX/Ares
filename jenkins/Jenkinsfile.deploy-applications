@@ -24,14 +24,7 @@ podTemplate(label: 'builder',
             stage('Run') {
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
-
-                        sh 'echo current directory (run stage)...'
-                        sh 'pwd'
-                        sh 'ls -a'
-
                         sh "mkdir jenkins/cicd/root/.kube && echo '$ARES_MINIKUBE_CONFIG' > jenkins/cicd/root/.kube/config"
-
-                        sh 'cat jenkins/cicd/root/.kube/config'
 
                         sh 'echo Running Docker Image...'
                         sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /jenkins/cicd/root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
