@@ -20,10 +20,10 @@ env
 
 echo 'cloning repository...'
 
-git clone https://github.com/HakimiX/Ares.git
+#git clone https://github.com/HakimiX/Ares.git
 
-echo 'done cloning, repo content'
-ls Ares
+#echo 'done cloning, repo content'
+#ls Ares
 
-cd ~/pyscripts
-python3 ./deploy_applications.py
+#cd ~/pyscripts
+#python3 ./deploy_applications.py
