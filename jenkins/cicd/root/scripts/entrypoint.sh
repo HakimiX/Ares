@@ -6,8 +6,8 @@ echo 'homefolder content...'
 cd ~
 ls -a
 
-#echo "content of kube directory"
-#ls .kube
+echo "content of kube directory"
+ls .kube
 
 echo "content of kube/config"
 cat .kube/config
