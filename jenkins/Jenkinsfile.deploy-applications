@@ -38,7 +38,7 @@ podTemplate(label: 'builder',
                         sh 'cat jenkins/cicd/root/.kube/config'
 
                         sh 'echo Running Docker Image...'
-                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH --mount type=bind,source="$(pwd)",target=/root -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
+                        sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH --mount src="$(pwd)",target=/root,type=bind -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
                     }
 
                 }
