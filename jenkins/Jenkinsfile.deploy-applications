@@ -30,6 +30,7 @@ podTemplate(label: 'builder',
                         sh "echo '$HOME'"
 
                         sh "mkdir '$HOME'/.kube"
+                        sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
                         sh "echo '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
 
                         sh 'echo stage-run kube content'
@@ -39,7 +40,7 @@ podTemplate(label: 'builder',
                         sh "cat '$HOME'/.kube/config"
 
                         sh 'echo Running Docker Image...'
-                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG=/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
+                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube/config:/root/.kube/config -e KUBECONFIG=/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
                     }
                 }
             }
