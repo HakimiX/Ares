@@ -28,9 +28,9 @@ RUN mkdir /root/.ssh;mkdir /cicd;mkdir /app # TODO: is this necessary?
 WORKDIR /app
 
 # Install Helm
-RUN wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz # TODO: uncomment
-RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz               # TODO: uncomment
-RUN ln -s /app/linux-amd64/helm /usr/bin/helm3              # TODO: uncomment
+#RUN wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz # TODO: uncomment
+#RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz               # TODO: uncomment
+#RUN ln -s /app/linux-amd64/helm /usr/bin/helm3              # TODO: uncomment
 
 COPY root /root/
 
