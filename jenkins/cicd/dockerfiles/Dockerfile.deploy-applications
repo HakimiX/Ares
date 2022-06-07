@@ -5,17 +5,17 @@ FROM alpine:3.16 AS Builder
 ARG ARES_MINIKUBE_CONFIG
 
 # Create .kube/config
-RUN mkdir .kube
-RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
+RUN mkdir kube
+RUN echo "$ARES_MINIKUBE_CONFIG" > /kube/config
 
 RUN echo "content of kube/config"
-RUN ls -a .kube
-RUN cat .kube/config
+RUN ls -a kube
+RUN cat kube/config
 
 # The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
-COPY --from=builder .kube ./root/.kube
+COPY --from=builder kube ./root/kube
 RUN echo "content of directory (dockerfile)"
 RUN ls -a root
 
