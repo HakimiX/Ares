@@ -29,6 +29,7 @@ podTemplate(label: 'builder',
                         sh "echo the home directory"
                         sh "echo '$HOME'"
 
+                        sh "mkdir '$HOME'/.kube"
                         sh "echo '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
 
                         sh 'echo stage-run kube content'
