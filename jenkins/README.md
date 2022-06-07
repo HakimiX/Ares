@@ -115,6 +115,7 @@ The next step is to create a cloud configuration for the Minikube cluster.
 2. The following parameters must be set 
 
 ![](resources/jenkins-configure-cloud.png)
+:warning: Simply update the Jenkins Cloud Config if the Pod IP changes. 
 
 ### Jenkins Plugins 
 
