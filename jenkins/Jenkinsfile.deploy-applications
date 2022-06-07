@@ -34,6 +34,9 @@ podTemplate(label: 'builder',
                         sh 'echo stage-run kube content'
                         sh 'ls -a jenkins/cicd/root/.kube'
 
+                        sh 'echo stage-run content of config'
+                        sh 'cat jenkins/cicd/root/.kube/config'
+
                         sh 'echo Running Docker Image...'
                         sh 'docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /jenkins/cicd/root/.kube:/root/.kube -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest'
                     }
