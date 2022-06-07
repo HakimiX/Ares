@@ -26,6 +26,9 @@ podTemplate(label: 'builder',
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
 
+                        sh "echo the home directory"
+                        sh "echo '$HOME'"
+
                         sh "echo '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
 
                         sh 'echo stage-run kube content'
