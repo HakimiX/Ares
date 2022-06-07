@@ -32,7 +32,9 @@ WORKDIR /app
 #RUN tar -xvf ./helm-v3.6.2-linux-amd64.tar.gz               # TODO: uncomment
 #RUN ln -s /app/linux-amd64/helm /usr/bin/helm3              # TODO: uncomment
 
-COPY root /root/
+#COPY root /root/
+COPY root/scripts /root/scripts
+COPY root/pyscripts /root/pyscripts
 
 #RUN ln -s /root/.nvm/versions/node/v16.13.2/bin/node /usr/bin/node ;\
 #ln -s /root/.nvm/versions/node/v16.13.2/bin/npm /usr/bin/npm ;
