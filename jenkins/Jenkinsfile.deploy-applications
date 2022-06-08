@@ -39,7 +39,7 @@ podTemplate(label: 'builder',
                         sh "cat '$HOME'/.kube/config"
 
                         sh 'echo Running Docker Image...'
-                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG='$HOME'/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
+                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG=/root/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
                     }
                 }
             }
