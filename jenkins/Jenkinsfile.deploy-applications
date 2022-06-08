@@ -14,11 +14,9 @@ podTemplate(label: 'builder',
             }
 
             stage('Build'){
-                withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]){
-                  container('docker') {
+                container('docker') {
                     sh 'echo Building Docker Image...'
-                    sh 'docker build -f ./jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest --build-arg ARES_MINIKUBE_CONFIG=$ARES_MINIKUBE_CONFIG jenkins/cicd/'
-                  }
+                    sh 'docker build -f ./jenkins/cicd/dockerfiles/Dockerfile.deploy-applications -t deploy-applications:latest jenkins/cicd/'
                 }
             }
 
