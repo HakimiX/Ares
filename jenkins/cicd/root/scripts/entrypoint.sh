@@ -1,26 +1,11 @@
 #!/bin/bash
 # This script is meant for additional bootstrapping.
 
-echo 'all variables here...'
-echo "home dir = '$HOME'"
-echo 'pwd dir'
-pwd
-
-
-
 echo 'content of image...'
 echo 'homefolder content...'
 cd ~
 ls -a
 
-echo "content of kube directory"
-ls .kube
-
-echo "content of kube/config"
-cat .kube/config
-
-#echo "content of client dir"
-#ls -a client
 
 echo "environment variables"
 env
