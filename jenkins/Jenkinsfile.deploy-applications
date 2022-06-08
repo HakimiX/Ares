@@ -25,22 +25,21 @@ podTemplate(label: 'builder',
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
 
-                        sh '''
-                            echo "This is the directory of the secret file $ARES_MINIKUBE_CONFIG"
-                            echo "This is the content of the file `cat $ARES_MINIKUBE_CONFIG`"
+                        sh "echo the home directory"
+                        sh "echo '$HOME'"
 
-                            mkdir -p "$HOME"/.kube
-                            echo "Copying the content of the file `cat $ARES_MINIKUBE_CONFIG > $HOME/.kube/config`"
+                        sh "mkdir -p '$HOME'/.kube"
+                        sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
+                        sh "cat '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
 
-                            echo "Content of $HOME/.kube"
-                            ls -a "$HOME"/.kube
+                        sh 'echo stage-run kube content'
+                        sh "ls -a '$HOME'/.kube"
 
-                            echo "pipeline stage: content of config"
-                            cat "$HOME"/.kube/config
+                        sh 'echo stage-run content of config'
+                        sh "cat '$HOME'/.kube/config"
 
-                            echo "running docker image..."
-                            docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v "$HOME"/.kube:"$HOME"/.kube -e KUBECONFIG="$HOME"/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest
-                           '''
+                        sh 'echo Running Docker Image...'
+                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG=/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
                     }
                 }
             }
