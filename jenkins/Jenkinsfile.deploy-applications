@@ -25,19 +25,9 @@ podTemplate(label: 'builder',
             stage('Run') {
                 withCredentials([file(credentialsId: 'ARES_MINIKUBE_CONFIG', variable: 'ARES_MINIKUBE_CONFIG')]) {
                     container('docker') {
-
-                        sh "echo the home directory"
-                        sh "echo '$HOME'"
-
                         sh "mkdir -p '$HOME'/.kube"
                         sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
                         sh "cat '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
-
-                        sh 'echo stage-run kube content'
-                        sh "ls -a '$HOME'/.kube"
-
-                        sh 'echo stage-run content of config'
-                        sh "cat '$HOME'/.kube/config"
 
                         sh 'echo Running Docker Image...'
                         sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG=/root/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
