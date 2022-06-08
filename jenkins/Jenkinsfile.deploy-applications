@@ -38,10 +38,9 @@ podTemplate(label: 'builder',
                             echo "pipeline stage: content of config"
                             cat "$HOME"/.kube/config
 
+                            echo "running docker image..."
+                            docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v "$HOME"/.kube:"$HOME"/.kube -e KUBECONFIG="$HOME"/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest
                            '''
-
-                        sh 'echo Running Docker Image...'
-                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v /root/.kube:/root/.kube -e KUBECONFIG='$HOME'/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
                     }
                 }
             }
