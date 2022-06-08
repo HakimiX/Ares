@@ -29,20 +29,11 @@ podTemplate(label: 'builder',
                         sh '''
                             echo "This is the directory of the secret file $ARES_MINIKUBE_CONFIG"
                             echo "This is the content of the file `cat $ARES_MINIKUBE_CONFIG`"
+
+                            mkdir -p "$HOME"/.kube
+                            echo "Copying the content of the file `cat $ARES_MINIKUBE_CONFIG > $HOME/.kube/config`"
+
                            '''
-
-                        sh "echo the home directory"
-                        sh "echo '$HOME'"
-
-                        sh "mkdir -p '$HOME'/.kube"
-                        sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
-                        sh "echo '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
-
-                        sh 'echo stage-run kube content'
-                        sh "ls -a '$HOME'/.kube"
-
-                        sh 'echo stage-run content of config'
-                        sh "cat '$HOME'/.kube/config"
 
                         sh 'echo Running Docker Image...'
                         sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG=/root/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
