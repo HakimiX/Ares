@@ -29,7 +29,7 @@ podTemplate(label: 'builder',
                         sh "echo the home directory"
                         sh "echo '$HOME'"
 
-                        sh "mkdir '$HOME'/.kube"
+                        sh "mkdir -p '$HOME'/.kube"
                         sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
                         sh "echo bob is cool > '$HOME'/.kube/config"
 
