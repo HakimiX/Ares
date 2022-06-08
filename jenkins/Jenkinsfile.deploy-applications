@@ -32,7 +32,6 @@ podTemplate(label: 'builder',
 
                             mkdir -p "$HOME"/.kube
                             echo "Copying the content of the file `cat $ARES_MINIKUBE_CONFIG > $HOME/.kube/config`"
-
                            '''
 
                         sh 'echo Running Docker Image...'
