@@ -9,7 +9,7 @@ def change_kubernetes_context(env):
     #cmd = 'kubectl config get-contexts'
 
     #cmd = 'kubectl config current-context'
-    cmd = 'kubectl config view'
+    cmd = 'cat /root/.kube/config'
     cmd_result = os.system(cmd)
     if cmd_result != 0:
         print('Failed to change kubernetes context')
