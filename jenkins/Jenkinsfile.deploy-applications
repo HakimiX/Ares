@@ -5,7 +5,7 @@ podTemplate(label: 'builder',
             ],
             volumes: [
                     hostPathVolume(hostPath: '/var/run/docker.sock', mountPath: '/var/run/docker.sock'),
-                    hostPathVolume(hostPath: '/root/.kube', mountPath: '/root/.kube'),
+                    hostPathVolume(hostPath: '/home/jenkins/.kube', mountPath: '/home/jenkins/.kube'),
             ]) {
 
         node('builder') {
