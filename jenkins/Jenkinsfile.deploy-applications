@@ -31,10 +31,17 @@ podTemplate(label: 'builder',
 
                             mkdir -p "$HOME"/.kube
                             echo "Copying the content of the file `cat $ARES_MINIKUBE_CONFIG > $HOME/.kube/config`"
+
+                            echo "Content of $HOME/.kube"
+                            ls -a "$HOME"/.kube
+
+                            echo "pipeline stage: content of config"
+                            cat "$HOME"/.kube/config
+
                            '''
 
                         sh 'echo Running Docker Image...'
-                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:/root/.kube -e KUBECONFIG='$HOME'/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
+                        sh "docker run -e PROJECTS=$PROJECTS -e ENVIRONMENT=$ENVIRONMENT -e BRANCH=$BRANCH -v '$HOME'/.kube:'$HOME'/.kube -e KUBECONFIG='$HOME'/.kube/config -v /var/run/docker.sock:/var/run/docker.sock -t --rm deploy-applications:latest"
                     }
                 }
             }
