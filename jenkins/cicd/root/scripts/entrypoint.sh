@@ -7,10 +7,10 @@ cd ~
 ls -a
 
 echo "content of kube directory"
-ls .kube
+ls ~/.kube
 
 echo "content of kube/config"
-cat .kube/config
+cat ~/.kube/config
 
 #echo "content of client dir"
 #ls -a client
