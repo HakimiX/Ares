@@ -1,6 +1,13 @@
 #!/bin/bash
 # This script is meant for additional bootstrapping.
 
+echo 'all variables here...'
+echo "home dir = '$HOME'"
+echo 'pwd dir'
+pwd
+
+
+
 echo 'content of image...'
 echo 'homefolder content...'
 cd ~
