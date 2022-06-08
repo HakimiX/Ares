@@ -31,7 +31,7 @@ podTemplate(label: 'builder',
 
                         sh "mkdir -p '$HOME'/.kube"
                         sh "echo copying content of ARES_MINIKUBE_CONFIG into '$HOME'/.kube/config"
-                        sh "echo bob is cool > '$HOME'/.kube/config"
+                        sh "echo '$ARES_MINIKUBE_CONFIG' > '$HOME'/.kube/config"
 
                         sh 'echo stage-run kube content'
                         sh "ls -a '$HOME'/.kube"
