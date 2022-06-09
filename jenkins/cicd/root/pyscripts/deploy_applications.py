@@ -14,13 +14,7 @@ def change_kubernetes_context(env):
     print('Changing Kubernetes Context')
     #cmd = 'kubectl config use-context {}'.format(environment_configs[env].kubernetes_context)
     #cmd = 'kubectl config get-contexts'
-
-    gticmd = 'kubectl config current-context'
-    #cmd = 'cat ~/.kube/config'
-    cmd_result = os.system(cmd)
-    if cmd_result != 0:
-        print('Failed to change kubernetes context')
-        sys.exit(1)
+    get_current_context(env)
 
 
 def handler(projects, env, branch):
