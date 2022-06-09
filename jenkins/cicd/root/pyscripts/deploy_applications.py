@@ -3,12 +3,19 @@ import sys
 
 from environments import environment_configs
 
+def get_current_context(env):
+    cmd = 'kubectl config current-context'
+    cmd_result = os.system(cmd)
+    if cmd_result != 0:
+        print('Failed to get current context')
+        sys.exit(1)
+
 def change_kubernetes_context(env):
     print('Changing Kubernetes Context')
     #cmd = 'kubectl config use-context {}'.format(environment_configs[env].kubernetes_context)
     #cmd = 'kubectl config get-contexts'
 
-    cmd = 'kubectl config current-context'
+    gticmd = 'kubectl config current-context'
     #cmd = 'cat ~/.kube/config'
     cmd_result = os.system(cmd)
     if cmd_result != 0:
