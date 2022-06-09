@@ -3,18 +3,21 @@ import sys
 
 from environments import environment_configs
 
-def get_current_context(env):
-    cmd = 'kubectl config current-context'
+
+def exec_cmd(cmd):
     cmd_result = os.system(cmd)
     if cmd_result != 0:
-        print('Failed to get current context')
+        print("Failed to run command: {}".format(cmd))
         sys.exit(1)
+
 
 def change_kubernetes_context(env):
     print('Changing Kubernetes Context')
     #cmd = 'kubectl config use-context {}'.format(environment_configs[env].kubernetes_context)
     #cmd = 'kubectl config get-contexts'
-    get_current_context(env)
+
+    cmd = 'kubectl config current-context'
+    exec_cmd(cmd)
 
 
 def handler(projects, env, branch):
