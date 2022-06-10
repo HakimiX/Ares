@@ -4,14 +4,6 @@
 
 #ARG ARES_MINIKUBE_CONFIG
 
-# Create .kube/config
-#RUN mkdir .kube
-#RUN echo "$ARES_MINIKUBE_CONFIG" > /.kube/config
-
-#RUN echo "content of kube/config"
-#RUN ls -a .kube
-#RUN cat .kube/config
-
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=nonintercative
