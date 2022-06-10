@@ -12,7 +12,6 @@
 #RUN ls -a .kube
 #RUN cat .kube/config
 
-# The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=nonintercative
