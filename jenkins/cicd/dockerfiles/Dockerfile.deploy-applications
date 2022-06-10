@@ -15,10 +15,6 @@
 # The main container that is responisble for installing depenedencies
 FROM ubuntu:20.04
 
-#COPY --from=builder .kube ./root/.kube
-#RUN echo "content of directory (dockerfile)"
-#RUN ls -a root
-
 ENV DEBIAN_FRONTEND=nonintercative
 
 # Install Python3
