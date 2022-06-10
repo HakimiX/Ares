@@ -2,7 +2,6 @@
 # to the appropriate files (.kube/config, .ssh/id_rsa, etc.)
 #FROM alpine:3.16 AS Builder
 
-
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=nonintercative
